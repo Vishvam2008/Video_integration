@@ -54,26 +54,46 @@ function initSpeechRecognition() {
     }
     
     recognition = new SpeechAPI();
-    recognition.continuous = false;
-    recognition.interimResults = false;
+    recognition.continuous = true;
+    recognition.interimResults = true;
     recognition.lang = "en-US";
 
     recognition.onstart = () => {
         isListening = true;
         updateVoiceButtonsUI(true);
         const listeningIndicator = document.getElementById('listeningIndicator');
-        if (listeningIndicator) listeningIndicator.textContent = '🎤 Listening...';
+        if (listeningIndicator) listeningIndicator.textContent = '🎤 Listening (speak continuously)...';
+        
+        const answerEl = document.getElementById('answerText');
+        dictationBaseText = answerEl ? answerEl.value : '';
+        if (dictationBaseText.length > 0 && !dictationBaseText.endsWith(' ')) {
+            dictationBaseText += ' ';
+        }
     };
 
     recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+                finalTranscript += event.results[i][0].transcript;
+            } else {
+                interimTranscript += event.results[i][0].transcript;
+            }
+        }
+        
         const answerEl = document.getElementById('answerText');
-        if (transcript && transcript.length > 0 && answerEl) {
-            answerEl.value = transcript;
+        if (answerEl) {
+            if (finalTranscript) {
+                dictationBaseText += finalTranscript + ' ';
+            }
+            answerEl.value = dictationBaseText + interimTranscript;
             checkSubmitButtonState();
         }
+        
         const listeningIndicator = document.getElementById('listeningIndicator');
-        if (listeningIndicator) listeningIndicator.textContent = `✅ Captured: "${transcript}"`;
+        if (listeningIndicator) listeningIndicator.textContent = `🎤 Hearing: "${interimTranscript || finalTranscript}"`;
         engagementActive = true;
         lastInteraction = Date.now();
     };
@@ -86,7 +106,7 @@ function initSpeechRecognition() {
             alert("Microphone permission denied. Please allow microphone access.");
             if (ind) ind.textContent = "❌ Permission denied";
         } else if (event.error === "no-speech") {
-            alert("No speech detected. Please speak clearly.");
+            // Do not alert on no-speech when continuous is true
             if (ind) ind.textContent = "🔇 No speech detected";
         } else if (event.error === "audio-capture") {
             alert("Microphone not found. Check your device.");

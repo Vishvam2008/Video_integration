@@ -1,7 +1,5 @@
 // API Configuration
-const API_BASE_URL = window.location.protocol === 'file:'
-    ? 'http://localhost:5000/api'
-    : `${window.location.origin}/api`;
+const API_BASE_URL = 'http://localhost:5000/api';
 
 // State Management (Interview only)
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerVault - AI Mock Interview Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎓 CareerVault</div>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </header>
+        <!-- ENHANCED AI MOCK INTERVIEW SECTION -->
+        <section id="mockInterview" class="interview-section">
+
+            <div class="interview-header">
+                <div>
+                    <h2>🤖 AI Mock Interview with Camera + Voice Analysis</h2>
+                    <p>Real-time AI evaluation with camera engagement, voice input, adaptive questions &amp; hire decision. <strong>Enable camera/mic permissions</strong></p>
+                </div>
+                <div class="interview-controls">
+                    <button type="button" class="btn btn-secondary" id="startCameraBtn">
+                        📹 Start Camera
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="micToggleBtn">
+                        🎤 Voice Input
+                    </button>
+                    <button type="button" class="btn btn-secondary active" id="ttsToggleBtn">
+                        🔊 AI Voice ON
+                    </button>
+                    <button type="button" class="btn btn-primary" id="startInterviewBtn" disabled>
+                        🚀 Start Interview
+                    </button>
+                </div>
+            </div>
+
+            <div class="interview-main">
+                <div class="video-panel">
+                    <div class="video-header">
+                        <span>Your Camera</span>
+                        <button class="btn btn-small" id="mirrorModeBtn">Mirror OFF</button>
+                    </div>
+                    <div class="camera-container">
+                        <video id="cameraPreview" autoplay muted playsinline class="camera-feed"></video>
+                    </div>
+                    <div class="camera-status" id="cameraStatus">Camera off</div>
+                    
+                    <!-- STATUS CHIPS -->
+                    <div class="status-grid">
+                        <span class="status-chip" id="personStatus">🧑 Person: --</span>
+                        <span class="status-chip" id="faceStatus">👤 Face: off</span>
+                        <span class="status-chip" id="engagementStatus">💡 Engagement: low</span>
+                        <span class="status-chip" id="speechStatus">🎙️ Voice: silent</span>
+                    </div>
+                </div>
+
+                <div class="interview-panel">
+                    <!-- INTERVIEW PROGRESS BAR -->
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span id="interviewProgress">Q0/10</span>
+                            <div class="progress-fill interview-progress-fill">
+                                <div class="progress-bar-fill" id="interviewProgressBar"></div>
+                            </div>
+                            <span id="interviewProgressPct">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- CURRENT QUESTION -->
+                    <div class="question-card">
+                        <h3>Current Question</h3>
+                        <div id="interviewQuestion" class="question-text">
+                            Click "Start Interview" to receive your first question.
+                        </div>
+                    </div>
+
+                    <!-- ANSWER INPUT -->
+                    <div class="answer-section">
+                        <div class="answer-input">
+                            <textarea id="answerText" placeholder="Type or use voice input for your answer..." rows="4"></textarea>
+                        </div>
+                        <div class="answer-controls">
+                            <button type="button" class="btn btn-secondary" id="voiceBtn">🎤 Voice Answer</button>
+                            <button type="button" class="btn btn-primary" id="submitAnswerBtn" disabled>
+                                📤 Submit & Get Feedback
+                                <span class="loader" id="answerLoader"></span>
+                            </button>
+                        </div>
+                        <div class="listening-indicator" id="listeningIndicator"></div>
+                    </div>
+
+                    <!-- FEEDBACK PANEL WITH SCORE BARS -->
+                    <div class="feedback-panel">
+                        <h3 id="feedbackTitle">AI Feedback & Scores</h3>
+                        <div id="feedbackContent">
+                            <div class="feedback-placeholder">
+                                Submit your first answer to see AI analysis, scores, and next question.
+                            </div>
+                        </div>
+                        
+                        <!-- LIVE SCORE BARS -->
+                        <div class="score-section" id="scoreSection" style="display: none;">
+                            <h4>Current Scores (0-10)</h4>
+                            <div class="score-bars">
+                                <div class="score-bar">
+                                    <span>Confidence</span>
+                                    <div class="score-fill" data-score="0" id="confScore"></div>
+                                </div>
+                                <div class="score-bar">
+                                    <span>Technical</span>
+                                    <div class="score-fill" data-score="0" id="techScore"></div>
+                                </div>
+                                <div class="score-bar">
+                                    <span>Engagement</span>
+                                    <div class="score-fill" data-score="0" id="engScore"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js?v=20260410-voicefix"></script>
+</body>
+</html>

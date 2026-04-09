@@ -1,0 +1,96 @@
+company_name,industry/domain,job_postings
+Google,SaaS/Cloud,2
+Wipro,IT Services,2
+ABB,Other,1
+Accenture,Consulting,1
+Adobe,SaaS,1
+Airbnb,Travel Tech,1
+Amazon,E-commerce/Cloud,1
+American Express,Fintech/Payments,1
+AstraZeneca,Other,1
+Atlassian,Other,1
+BCG,Other,1
+BMW,Other,1
+BP,Other,1
+Baker Hughes,Other,1
+Bank of America,Other,1
+Barclays,Other,1
+BlackRock,Other,1
+Booking Holdings,Travel Tech,1
+Bosch,Other,1
+Capgemini,IT Services,1
+Cisco,Networking,1
+Citi,Other,1
+Coca-Cola,Other,1
+Cognizant,IT Services,1
+Credit Suisse,Other,1
+DXC Technology,Other,1
+Dell Technologies,Other,1
+Deloitte,Consulting,1
+Deutsche Bank,Other,1
+EY,Consulting,1
+Ericsson,Other,1
+Expedia,Travel Tech,1
+ExxonMobil,Other,1
+Flipkart,E-commerce,1
+GE,Other,1
+Goldman Sachs,Fintech/Investment Banking,1
+HCLTech,IT Services,1
+HP,Other,1
+HSBC,Other,1
+Hindustan Unilever,Other,1
+Honeywell,Other,1
+IBM,IT/Consulting,1
+ITC,Other,1
+Infosys,IT Services,1
+Intel,Semiconductor,1
+JPMorgan Chase,Fintech/Banking,1
+KPMG,Consulting,1
+LG,Other,1
+LTIMindtree,IT Services,1
+Marico,Other,1
+Mastercard,Fintech/Payments,1
+Mercedes-Benz,Other,1
+Microsoft,SaaS/Cloud,1
+Morgan Stanley,Fintech/Investment Banking,1
+Morningstar,Other,1
+Mphasis,IT Services,1
+NVIDIA,Semiconductor/AI,1
+Nestle,Other,1
+Nokia,Other,1
+Novartis,Other,1
+Novo Nordisk,Other,1
+Oracle,Enterprise Software,1
+Panasonic,Other,1
+PayPal,Fintech/Payments,1
+PepsiCo,Other,1
+Pfizer,Other,1
+Philips,Other,1
+PwC,Consulting,1
+Qualcomm,Semiconductor,1
+Reckitt,Other,1
+Red Hat,Other,1
+Roche,Other,1
+SAP,Enterprise Software,1
+Salesforce,SaaS/CRM,1
+Samsung,Other,1
+Schneider Electric,Other,1
+ServiceNow,Other,1
+Shell,Other,1
+Siemens,Other,1
+Sony,Other,1
+Standard Chartered,Other,1
+TCS,IT Services,1
+Target,Other,1
+Tech Mahindra,IT Services,1
+Tesco,Other,1
+Thomson Reuters,Other,1
+Toyota,Other,1
+UBS,Other,1
+Uber,Mobility Tech,1
+Unilever,Other,1
+VMware,Other,1
+Visa,Fintech/Payments,1
+Volvo Group,Other,1
+Walmart Global Tech,Retail Tech,1
+Zoho,Other,1

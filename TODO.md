@@ -1,24 +1,50 @@
-# TODO: Remove Form Section - Keep Only AI Mock Interview UI
+# Flask Backend Render Deployment Fix Plan
 
-## Plan Breakdown (Approved ✅)
+## Status: 🔄 In Progress
 
-**Files to Edit:**
-- [ ] html/index.html (HTML removal + layout fix)
-- [ ] html/script.js (form logic removal)
-- [ ] html/style.css (form styles cleanup)
+### Step 1: ✅ Local Verification Complete
+- [x] `python app.py` runs without errors
+- [x] `http://localhost:5000/api/health` returns `{"status": "healthy", "service": "production"}`
+- [x] Full interview workflow (camera, voice, API) works locally
 
-**Current Progress:** Ready to start Step 1
+### Step 2: 🔍 Render Service Diagnostics
+- [ ] Check Render dashboard:
+  - Build logs for pip install errors
+  - Deploy logs for runtime crashes
+  - Environment variables (GROQ_API_KEY, FLASK_SECRET_KEY, FLASK_ENV=production)
+  - Start Command: `gunicorn app:app` or `waitress-serve --host=0.0.0.0 --port=$PORT app:app`
+  - Build Command: `pip install -r requirements.txt`
+- [ ] Service status: Ensure web service is ACTIVE (not sleeping/failed)
 
-## Steps:
-1. ✅ **Plan Approved** - Remove form, keep interview intact
-2. ✅ **Edit html/index.html** - Remove sidebar/form, fix layout to full-width interview
-3. ✅ **Edit html/script.js** - Remove form functions/listeners, keep interview code
-4. ✅ **Edit html/style.css** - Remove form styles only
-5. ⏳ **Test Layout** - Verify full-width centered interview, no empty space
-6. ⏳ **Test Functionality** - Camera/mic/interview flow (no console errors)
-7. ⏳ **Responsive/Dark Mode** - Check mobile + theme toggle
-8. ✅ **Complete** - Use attempt_completion
+### Step 3: 🛠️ Render Configuration Updates
+- [ ] Set Environment Variables in Render:
+  ```
+  FLASK_ENV=production
+  FLASK_SECRET_KEY=your-secret-key
+  GROQ_API_KEY=your-groq-key
+  ```
+- [ ] Update Start Command to: `waitress-serve --host=0.0.0.0 --port=$PORT app:app`
+- [ ] Ensure requirements.txt is detected correctly
 
-**Next Action:** Test layout and functionality
+### Step 4: 🧪 Post-Deploy Verification
+- [ ] Test production `/api/health` endpoint
+- [ ] Test full interview flow end-to-end
+- [ ] Monitor logs for any import/runtime errors
 
-**Next Action:** Edit html/index.html
+### Step 5: ✅ Documentation Complete
+- [x] `render.yaml` created
+- [x] `.env.example` created  
+- [x] `README.md` updated
+
+### Step 6: ✅ Production Fixes Complete
+- [x] Dynamic API_BASE_URL (localhost vs /api)
+- [x] All Render config files
+- [x] Local server running (py app.py)
+
+### Step 7: 🔄 Render Deployment
+- [ ] Update Render service with new files
+- [ ] Set env vars from `.env.example`
+- [ ] Redeploy and check `/api/health`
+
+**DEPLOYMENT READY - Focus on Render dashboard configuration!**
+
